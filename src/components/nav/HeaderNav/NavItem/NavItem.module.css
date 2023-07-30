@@ -1,0 +1,54 @@
+/*li*/
+.NavItem {
+   font-size: 16px;
+
+}
+
+.NavIcon {
+     font-size: 16px;
+    color: var(--color-white);
+    margin-right: 15px;
+
+}
+
+.NavIcon:hover {
+    color: var(--color-yellow);
+}
+
+.Icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.BadgeNumber {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--color-yellow);
+    background: var(--color-yellow) !important;
+    color: var(--color-white);
+    top: -5px;
+    left: 10px;
+    width: 13px;
+    height: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*inset: -10px -10px auto auto;*/
+    font-weight: normal;
+    font-size: 11px !important;
+
+}
+
+@media screen and (max-width: 768px) {
+    .NavIcon {
+        margin-right: 0;
+
+    }
+
+
+
+}

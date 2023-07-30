@@ -1,0 +1,75 @@
+.mpesa .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #eee;
+    margin: 10px 0;
+}
+
+.mpesa .mpesa-form {
+    width: 100%;
+}
+
+.mpesa .mpesa-form button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.mpesa .card {
+    border-radius: 4px;
+    border: 1px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 10px;
+}
+
+.mpesa .mpesa-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    font-family: 'Rubik', serif;
+}
+
+.mpesa .mpesa-details p {
+    margin-right: 10px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.mpesa .mpesa-details img {
+    height: 50px;
+    width: auto;
+}
+
+.mpesa .mpesa-form button.pay-now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    font-size: 16px;
+    font-family: Rubik, cursive;
+    font-weight: bold;
+    background-color: var(--color-brown);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mpesa .mpesa-form button.pay-now:hover {
+    background-color: var(--color-blue);
+}
+
+.mpesa a {
+    font-family: 'Rubik', serif;
+    display: block;
+    text-align: center;
+
+    color: var(--color-steel-blue);
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.mpesa a:hover {
+    text-decoration: underline;
+}

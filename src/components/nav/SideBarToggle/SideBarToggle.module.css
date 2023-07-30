@@ -1,0 +1,21 @@
+.ToggleButton {
+    font-size: 32px;
+    padding-left: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .ToggleButton {
+        font-size: 36px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    .Hide {
+        display: none;
+    }
+
+}
+

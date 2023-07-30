@@ -1,0 +1,72 @@
+
+.RatingBlock {
+    background-color: #FAFAFA;
+    border: 1px solid #EFEFEF;
+    border-radius: 3px;
+    padding: 0px 10px;
+
+}
+
+.title-rating {
+    text-transform: none;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 15px 0;
+}
+
+.title-rating span {
+    margin-right: 5px;
+}
+
+.Wrapper {
+    text-align: center;
+
+}
+
+.AverageRatingContainer {
+    display: flex;
+    align-items: center;
+
+}
+
+.AverageRating {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-right: 10px;
+}
+
+.AverageRatingText {
+    font-size: 18px;
+    font-weight: bold;
+}
+.Star{
+    margin-bottom: 10px;
+}
+.Verified{
+    font-size: 14px;
+}
+.BreakdownContainer {
+    margin-top: 20px;
+}
+
+.ReviewCard {
+    background-color: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    padding: 15px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.ReviewRating {
+    margin-bottom: 10px;
+}
+
+.ReviewComment {
+    margin-bottom: 5px;
+}
+
+.ReviewDate {
+    font-size: 14px;
+    color: #888888;
+}

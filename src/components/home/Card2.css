@@ -1,0 +1,118 @@
+.home-wrapper-1{
+  background-color: #232f3e;
+  padding: 80px 0;
+}
+
+
+/* Home Page */
+.main-banner-content {
+  top: 15%;
+  left: 5%;
+}
+.main-banner-content h4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-brown);
+  margin: 0 0 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.main-banner-content h5 {
+  font-size: 42px;
+  line-height: 54px;
+  letter-spacing: -2px;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.main-banner-content p {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.4px;
+  color: var(--color-black);
+}
+
+.small-banner-content {
+  top: 25%;
+  left: 10%;
+}
+.small-banner-content h4 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-brown);
+  margin: 0 0 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.small-banner-content h5 {
+  font-size: 22px;
+  line-height: 34px;
+  letter-spacing: -2px;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.small-banner-content p {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.4;
+  color: var(--color-black);
+}
+.small-banner {
+  width: 49%;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.button {
+  background-color: var(--color-blue);
+  color: white;
+  font-size: 14px;
+  padding: 13px 33px;
+  border-radius: 25px;
+}
+.button:hover {
+  background-color: var(--color-yellow1);
+  color: #131921;
+}
+.main-banner img, .small-banner img {
+  width: 100%;
+  height: auto;  /* Maintain aspect ratio */
+}
+
+@media (max-width: 767px) {
+  .home-wrapper-1 {
+    padding: 20px 10px;  /* Reduce padding for small screens */
+  }
+
+  .main-banner, .small-banner {
+    margin-bottom: 20px; /* Add bottom margin on small screens */
+  }
+
+  .main-banner-content, .small-banner-content {
+    top: 10%;  /* Adjusted positioning on small screens */
+    left: 2%;  /* Adjusted positioning on small screens */
+  }
+
+  .main-banner-content h5, .small-banner-content h5 {
+    font-size: 24px;  /* Reduce font size for headings on small screens */
+    line-height: 32px;
+  }
+
+  .main-banner-content p, .small-banner-content p {
+    font-size: 16px;  /* Reduce font size for paragraphs on small screens */
+    line-height: 26px;
+  }
+
+  .small-banner {
+    width: 100%;  /* Make small banners full width on small screens */
+  }
+
+  .gap-10 {
+    gap: 5px;  /* Reduce gap for small screens */
+  }
+}

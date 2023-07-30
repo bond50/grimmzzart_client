@@ -1,0 +1,112 @@
+.orders-card img {
+    max-height: 40px;
+}
+
+.orders-card .card-header {
+    border-color: #ebeef4;
+    background-color: #f5f8f2;
+    color: var(--color-black);
+}
+
+.orders-card .card-header p {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 14px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.status.status-ordered {
+    color: #000;
+    background-color: #ffc107;
+}
+
+.status.status-waiting {
+    color: #000;
+    background-color: #17a2b8;
+}
+
+.status.status-cancelled {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+.status.status-shipped {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.status.status-out-for-delivery {
+    color: #fff;
+    background-color: #28a745;
+}
+
+.status.status-delivered {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+.status.status-pending {
+    color: #fff;
+    background-color: #ff5722;
+}
+
+.status.status-returned {
+    color: #fff;
+    background-color: #9c27b0;
+}
+
+.status.status-refunded {
+    color: #fff;
+    background-color: #e91e63;
+}
+
+.status.status-dispatched {
+    color: #fff;
+    background-color: #673ab7;
+}
+
+.status.status-default {
+    color: #212529;
+    background-color: #f8f9fa;
+}
+
+.invoice, .details-link {
+    background-color: transparent;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-weight: 400;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.invoice {
+    color: var(--color-steel-blue);
+    text-transform: uppercase;
+}
+
+.details-link {
+    color: var(--color-yellow);
+}
+
+.details-link:hover {
+    background-color: #fcdbb9;
+}
+.invoice:hover {
+    background-color: var(--color-steel-blue);
+    color: var(--color-white);
+
+}
+
+.order-number {
+    font-weight: 600;
+    padding: 5px 0;
+}

@@ -1,0 +1,18 @@
+.Btn {
+    border-radius: 2rem;
+    background-color: var(--color-brown);
+    border: none;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.Btn:hover {
+    background-color: var(--color-black-light);
+    color: var(--color-white);
+}
+
+.BtnIcon {
+    position: absolute;
+    left: 10px;
+}

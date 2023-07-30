@@ -1,0 +1,8 @@
+.Btn {
+    border-radius: 2rem;
+    background-color: var(--color-yellow);
+    border: none;
+}
+.Btn:hover{
+     background-color: var(--color-black-light);
+}

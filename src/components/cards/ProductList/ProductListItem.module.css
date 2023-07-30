@@ -1,0 +1,82 @@
+
+.Review {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem !important;
+}
+
+.Review div {
+    font-size: 0.85rem;
+    color: grey;
+    margin-left: 0.5rem;
+    margin-top: 5px;
+
+}
+
+.Price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f60;
+}
+
+.Description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 1rem;
+}
+.StockCounter {
+    margin-right: 20px;
+}
+
+.StockCounter input {
+    border: none !important;
+    width: 3rem !important;
+    background-color: white !important;
+    text-align: center;
+}
+
+.Plus,
+.Minus {
+    padding: 0.3rem 0.9rem;
+}
+
+.StockCounter input::-webkit-outer-spin-button,
+.StockCounter input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+.Icon {
+    margin-right: 5px;
+}
+
+.Btn {
+    border-radius: 2rem;
+    background-color: #f60;
+    border: none;
+    padding: 0.5rem 2rem;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.Btn:hover {
+    background-color: #f90;
+}
+
+.RedColor {
+    color: red;
+}
+
+.GreenColor {
+    color: green;
+}
+
+.StockStatus {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-left: 0.3rem;
+}
+

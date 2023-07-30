@@ -1,0 +1,85 @@
+.Card {
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 20px; /* increased padding for better spacing */
+}
+
+.ProductImageWrapper {
+    width: 100%;
+    height: auto;
+}
+
+.ProductImage {
+    max-width: 100%;
+    height: auto;
+}
+
+.ProductTitle {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-black);
+    margin-bottom: 0.5rem;
+}
+
+.BrandInfo {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.StockInfo,
+.DeliveryInfo {
+    color: #333;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.Price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--color-blue);
+    margin-top: 1rem; /* added margin for better spacing */
+}
+
+.Review {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.ReviewCount {
+    margin-left: 5px;
+    color: #888;
+}
+
+.ButtonGroup {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Carousel {
+    margin-bottom: 15px;
+}
+
+.AddToCart {
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 0.8rem 2rem;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    background-color: var(--color-blue); /* added background color for better visibility */
+}
+.AddToWish {
+
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem 2rem;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    /* added background color for better visibility */
+}

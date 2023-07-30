@@ -1,0 +1,113 @@
+
+.order-summery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.order-summery h5 {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Rubik', serif;
+    color: var(--color-steel-blue);
+    margin: 0;
+}
+
+.order-summery button {
+    font-size: 14px;
+    color: var(--color-slate-blue);
+    text-decoration: none;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.order-summery button:hover {
+    text-decoration: underline;
+}
+
+.card {
+    border-radius: 4px;
+    border: 1px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body.pay-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 0;
+
+}
+
+.card-body.pay-details > p {
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Rubik', serif;
+}
+
+.card-body.pay-details > p:last-child {
+    color: var(--color-steel-blue);
+}
+
+.pay-with {
+    font-size: 16px;
+    font-family: 'Rubik', serif;
+    font-weight: bold;
+    color: var(--color-steel-blue);
+    margin-bottom: 10px;
+}
+
+.disclaimer {
+    font-family: 'Rubik', serif;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.disclaimer a {
+    color: var(--color-slate-blue);
+    text-decoration: none;
+}
+
+.disclaimer a:hover {
+    text-decoration: underline;
+}
+
+.note {
+    font-size: 12px;
+    color: #888;
+    font-family: 'Rubik', serif;
+    margin-bottom: 10px;
+}
+
+p a {
+    font-family: 'Rubik', serif;
+    color: #007bff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+p.help {
+    font-family: 'Rubik', serif;
+    font-size: 14px;
+    color: var(--color-blue);
+    margin-top: 10px;
+
+}
+
+p.help a {
+    color: var(--color-steel-blue);
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+p.help a:hover {
+    text-decoration: underline;
+}

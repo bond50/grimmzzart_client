@@ -1,0 +1,32 @@
+.orders {
+    background-color: #f1f1f2;
+}
+
+.orders .card {
+    background-color: #fff;
+    border-radius: 4px;
+}
+.orders .card-body{
+    padding: 0 1.5rem;
+}
+
+.orders .card-header {
+    margin-top: 0.5rem;
+}
+
+.orders .card-header h1 {
+    color: var(--color-black);
+    font-size: 1.2rem;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif;
+}
+
+.orders .nav-tabs {
+    border-bottom: 1px solid #e0e0e0;
+    color: #75757a;
+}
+
+.orders .nav-tabs .nav-link.active {
+    color: var(--color-yellow);
+    border-bottom: 2px solid var(--color-yellow);
+}
+

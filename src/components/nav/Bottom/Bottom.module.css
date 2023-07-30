@@ -1,0 +1,57 @@
+.Header {
+    background: var(--color-brown);
+    height: 60px;
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+
+}
+
+.Links,
+.Button {
+    color: var(--color-white);
+    font-size: 13px;
+    text-transform: none;
+}
+
+
+
+.Button:focus {
+    box-shadow: none;
+}
+
+.Button:hover {
+    color: var(--color-white);
+}
+
+.DropdownMenu {
+    background-color: var(--color-blue);
+    width: 100%;
+    margin-top: 0;
+    transform: translate3d(0px, -5px, 0px) !important;
+}
+
+.DropdownMenuToggle {
+    display: block;
+}
+
+.Item {
+    border-bottom: 1px solid var(--color-black-light);
+    color: var(--color-white);
+}
+
+.Link {
+    color: var(--color-white);
+}
+
+.Item:hover, .Link:hover {
+    background-color: transparent !important;
+    color: var(--color-yellow) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .Header {
+        display: none;
+    }
+
+}

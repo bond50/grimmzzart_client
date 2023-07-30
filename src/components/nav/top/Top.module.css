@@ -1,0 +1,54 @@
+.TopBar {
+  border-bottom: 1px solid var(--color-black-light);
+  background-color: var(--color-black);
+  z-index: 998;
+  height: 40px;
+  transition: all 0.3s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.Slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.Slide p {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.Button {
+  background-color: #fff;
+  color: #558B2F;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-left: 16px;
+}
+
+.Button:hover {
+  background-color: transparent;
+  color: var(--color-yellow) !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .Slide p {
+    font-size: 13px;
+  }
+
+  .Button {
+    margin-left: 8px;
+    padding: 8px 12px;
+  }
+}

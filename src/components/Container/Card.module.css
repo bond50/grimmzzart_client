@@ -1,0 +1,28 @@
+.Card {
+    /*margin-top: 20px;*/
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(1, 41, 112, 0.1);
+}
+
+.CardTitle {
+    padding: 10px 0 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+
+.CardHeader,
+.CardFooter {
+    border: none;
+    /*border-color: #ebeef4;*/
+    padding:  6px 0 0 0;
+
+}
+
+
+.CardBody {
+    padding: 10px 20px;
+}
+

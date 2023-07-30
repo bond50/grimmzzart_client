@@ -1,0 +1,102 @@
+.Footer {
+    color: #FFFFFF;
+    background: url("../../images/footer.jpg") top center no-repeat;
+    background-size: cover;
+    font-size: 14px;
+    padding: 80px 0 60px 0;
+    position: relative;
+}
+
+.Footer:before {
+    Content: "";
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    inset: 0;
+}
+
+.FooterInfo {
+    margin-bottom: 30px;
+}
+.FooterInfo h3 {
+    font-size: 28px;
+    margin: 0 0 20px 0;
+    padding: 2px 0 2px 0;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.FooterInfo h3 span {
+    color: var(--color-accent);
+}
+
+.FooterInfo p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+.SocialLinks a {
+    font-size: 18px;
+    display: inline-block;
+    background: var(--color-green);
+    color: #fff;
+    line-height: 1;
+    margin-right: 8px;
+    border-radius: 4px;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+.SocialLinks a:hover {
+    background: var(--color-accent);
+    text-decoration: none;
+}
+
+.FooterContent h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-green);
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.FooterLinks {
+    margin-bottom: 30px;
+}
+
+.FooterLinks ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.FooterLinks ul li {
+    padding: 8px 0;
+}
+
+.FooterLinks ul li:first-child {
+    padding-top: 0;
+}
+
+.FooterLinks ul a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+
+.FooterLinks ul a:hover {
+    color: #fff;
+}
+
+.Copyright {
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+

@@ -1,0 +1,11 @@
+.ToastMessage {
+    background-color: var(--color-green);
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 10px 15px;
+    min-width: 350px;
+    max-width: 450px;
+    border-left: 6px solid var(--color-accent);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    transition: all linear 0.3s;
+}

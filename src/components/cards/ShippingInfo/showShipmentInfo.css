@@ -1,0 +1,102 @@
+.withRibbon .card .card__container {
+    padding: 2rem 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.withRibbon .card .items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+@media (max-width: 768px) {
+
+    .withRibbon .card .items {
+        flex-direction: column;
+        align-items: start;
+    }
+
+}
+
+.withRibbon .card::before {
+    position: absolute;
+    top: 2rem;
+    right: -0.5rem;
+    content: '';
+    background: var(--color-primary);
+    height: 28px;
+    width: 28px;
+    transform: rotate(45deg);
+}
+
+.withRibbon .card::after {
+    position: absolute;
+    content: attr(data-label);
+    top: 11px;
+    right: -14px;
+    padding: 0.5rem;
+    width: 10rem;
+    background: var(--color-primary);
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+}
+
+.withRibbon .member {
+    position: relative;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 0px;
+    border-radius: 5px;
+    background: #fff;
+    transition: 0.5s;
+}
+
+.withRibbon .member .pic {
+    overflow: hidden;
+    width: 90px;
+    border-radius: 5px;
+}
+
+.withRibbon .member .pic img {
+    transition: ease-in-out 0.3s;
+}
+
+.withRibbon .member:hover {
+    transform: translateY(-10px);
+}
+
+.withRibbon .member .member-info {
+    padding-left: 30px;
+}
+
+.withRibbon .member h4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #37517e;
+}
+
+.withRibbon .member span {
+    display: block;
+    font-size: 13px;
+    position: relative;
+    font-weight: 500;
+}
+
+.withRibbon .member span::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: #cbd6e9;
+    bottom: 0;
+    left: 0;
+}
+

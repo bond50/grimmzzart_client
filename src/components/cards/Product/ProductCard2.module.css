@@ -1,0 +1,153 @@
+.ProductCard {
+    overflow: hidden;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    background-color: #fff;
+    border-radius: 8px;
+
+}
+
+.ProductCard:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+}
+
+.WishlistIcon {
+    position: absolute;
+    top: 0.5%;
+    right: 8px;
+}
+
+.ProductDetails {
+    padding: 8px 15px;
+    font-size: 13px;
+    color: var(--color-steel-blue);
+
+}
+
+.Less {
+    color: var(--color-brown);
+
+}
+
+.ProductImage {
+    height: 200px;
+}
+
+.Icon {
+    color: var(--color-steel-blue);
+}
+
+.Image {
+
+    height: 100%;
+
+}
+
+.Image img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.Image > img:last-child {
+    display: none;
+}
+
+.ProductCard:hover .Image > img:nth-child(1) {
+    display: none;
+}
+
+.ProductCard:hover .Image > img:last-child {
+    display: block;
+}
+
+.ProductCard:hover .ActionBar {
+    right: 8px;
+}
+
+
+.ProductTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-blue);
+}
+
+.Price {
+    font-size: 14px;
+    color: var(--color-blue);
+}
+
+.Description {
+    font-size: 13px;
+    color: var(--color-steel-blue);
+}
+
+.ActionBar {
+    position: absolute;
+    top: 10%;
+    right: -40px;
+    transition: 0.3s;
+    background-color: var(--color-yellow);
+
+}
+
+.Brand {
+    color: var(--color-slate-blue);
+    font-size: 13px;
+
+
+}
+
+
+@media screen and (max-width: 992px) {
+
+    .ProductCard {
+        padding: 15px;
+
+    }
+
+    .WishlistIcon {
+        top: 5%;
+        right: 15px;
+    }
+
+    .ProductImage {
+        height: 250px;
+    }
+
+
+
+    .ProductDetails {
+        padding-top: 40px;
+
+    }
+
+
+    .ProductTitle {
+        font-size: 16px;
+
+
+    }
+
+    .Price {
+        font-size: 15px;
+    }
+
+    .Description {
+        font-size: 14px;
+        color: var(--color-black2);
+
+    }
+
+
+    .Brand {
+        font-size: 14px;
+
+    }
+
+
+}
+

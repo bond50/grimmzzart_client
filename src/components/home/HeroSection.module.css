@@ -1,0 +1,124 @@
+.Wrapper {
+    padding: 0;
+}
+
+.Hero {
+    min-height: 60vh;
+    background-size: cover;
+    position: relative;
+    padding: 30px 0;
+    z-index: 3;
+}
+
+
+@media (min-width: 1034px) {
+    .Hero:after {
+        position: absolute;
+        content: "";
+        width: 40%;
+        background: var(--color-blue);
+        top: 0;
+        bottom: 0;
+    }
+}
+
+.Hero:before {
+    position: absolute;
+    content: "";
+    background: rgba(27, 47, 69, 0.1);
+    inset: 0;
+}
+
+@media (max-width: 1034px) {
+    .Hero:before {
+        background: rgba(27, 47, 69, 0.5);
+    }
+}
+
+.Container {
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .Container {
+        padding: 0 40px;
+    }
+}
+
+
+@media (min-width: 1365px) {
+    .Hero {
+        background-attachment: fixed;
+    }
+}
+
+.Heading {
+    margin: 0;
+    font-size: 48px;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-accent);
+
+}
+
+.BlockQuote {
+    color: #fff;
+    padding-left: 20px;
+    font-size: 15px;
+    border-left: 4px solid var(--color-accent);
+    margin: 40px 0;
+}
+
+.Hero .Btn1 {
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: 0.5s;
+    color: var(--color-white);
+    background: var(--color-accent);
+}
+
+.Hero .Btn1:hover {
+    background: var(--color-white);
+    color: var(--color-green);
+}
+
+.Hero .Btn2 {
+    font-size: 16px;
+    transition: 0.5s;
+    margin-left: 25px;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.Hero .Btn2 .Icon {
+    color: var(--color-accent);
+    font-size: 32px;
+    transition: 0.3s;
+    line-height: 0;
+    margin-right: 8px;
+}
+
+.Hero .Btn2:hover {
+    color: var(--color-green);
+}
+
+.Hero .Btn2:hover .Icon {
+    color: var(--color-white);
+}
+
+@media (max-width: 640px) {
+    .Heading {
+        font-size: 36px;
+        line-height: 1;
+    }
+
+    .Hero .Btn1,
+    .Hero .Btn2 {
+        font-size: 13px;
+    }
+}
