@@ -10,6 +10,8 @@
 # testing
 /coverage
 
+
+
 # next.js
 /.next/
 /out/
@@ -52,5 +54,7 @@ bower_components
 psd
 thumb
 sketch
+.gitignore
+.dockerignore
 
 # End of https://www.toptal.com/developers/gitignore/api/react,nextjs
