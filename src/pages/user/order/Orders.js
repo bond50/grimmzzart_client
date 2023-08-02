@@ -144,7 +144,7 @@ const Orders = () => {
         ))
     };
 
-    console.log(orders)
+
 
     return (
         <section className='sectionClass30 orders'>

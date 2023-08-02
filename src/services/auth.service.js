@@ -20,7 +20,6 @@ const signup = (data) => {
 const login = (data) => {
   return axios.post(API_URL + '/signin', data).then((response) => {
     if (response.data.user.token) {
-      console.log('USER', response.data);
       localStorage.setItem('user', JSON.stringify(response.data.user));
     }
     return response.data;

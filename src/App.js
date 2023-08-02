@@ -128,13 +128,11 @@ const App = () => {
                         </UserRoute>
                     }/>
 
-
                     <Route path="/checkout" element={
                         <UserRoute>
                             <Checkout/>
                         </UserRoute>
                     }/>
-
 
                     <Route path="user/dashboard" element={
                         <UserRoute>
