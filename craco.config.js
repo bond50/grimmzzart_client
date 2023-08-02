@@ -1,13 +1,10 @@
-const {PurgeCSSPlugin} = require("purgecss-webpack-plugin");
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const glob = require("glob");
 const path = require("path");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin; // Add this line
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
-const pathExtractor = class {
-    static extract(content) {
-        return content.match(/[A-Za-z0-9-_:/]+/g) || [];
-    }
-};
+// Define pathExtractor as a function
+const pathExtractor = content => content.match(/[A-Za-z0-9-_:/]+/g) || [];
 
 module.exports = {
     style: {
@@ -18,7 +15,7 @@ module.exports = {
     webpack: {
         plugins: [
             new PurgeCSSPlugin({
-                paths: glob.sync(`${path.join(__dirname, "src")}/**/*`, {nodir: true}),
+                paths: glob.sync(`${path.join(__dirname, "src")}/**/*`, { nodir: true }),
                 extractors: [
                     {
                         extractor: pathExtractor,
@@ -45,4 +42,3 @@ module.exports = {
         ],
     },
 };
-
