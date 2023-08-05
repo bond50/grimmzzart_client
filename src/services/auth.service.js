@@ -1,12 +1,7 @@
 import axios from 'axios';
+import {API_URL} from "../common/config/config";
 
-let API_URL;
 
-if (process.env.NODE_ENV === 'development') {
-  API_URL = process.env.REACT_APP_API_DEVELOPMENT;
-} else if (process.env.NODE_ENV === 'production') {
-  API_URL = process.env.REACT_APP_API_PRODUCTION;
-}
 
 const preSignup = (data) => {
   return axios.post(API_URL + '/pre-signup', data);

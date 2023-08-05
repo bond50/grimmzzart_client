@@ -1,6 +1,7 @@
 import axios from "axios";
+import {API_URL} from "../common/config/config";
 
-const API_URL = process.env.REACT_APP_API_DEVELOPMENT;
+
 
 export const userCart = async (cart, token) => {
     return await axios.post(`${API_URL}/user/cart`, {cart}, {

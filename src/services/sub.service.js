@@ -1,6 +1,7 @@
 import axios from "axios";
+import {API_URL} from "../common/config/config";
 
-const API_URL = process.env.REACT_APP_API_DEVELOPMENT;
+
 export const getSubs = async () => await axios.get(`${API_URL}/subs`);
 
 export const fetchSubCategories = async () => {
