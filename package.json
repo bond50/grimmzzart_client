@@ -5,7 +5,6 @@
   "description": "Farm application",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "^5.0.1",
     "@david.kucsai/react-pdf-table": "^0.4.1",
     "@paypal/react-paypal-js": "^7.8.2",
     "@reduxjs/toolkit": "^1.9.1",
@@ -19,12 +18,12 @@
     "dompurify": "^2.4.6",
     "formik": "^2.2.9",
     "google-map-react": "^2.2.0",
-    "kenya": "^1.7.1",
+
     "lodash": "^4.17.21",
     "mdb-react-ui-kit": "5.1.0",
     "react": "^18.1.0",
     "react-bootstrap": "^2.7.0",
-    "react-bootstrap-range-slider": "^3.0.8",
+
     "react-date-picker": "^9.2.0",
     "react-datepicker": "^4.8.0",
     "react-day-picker": "^8.6.0",
@@ -43,9 +42,6 @@
     "react-select": "^5.7.2",
     "react-simple-star-rating": "^5.1.7",
     "react-slick": "^0.29.0",
-    "react-spring": "^9.7.2",
-    "react-table": "^7.8.0",
-    "react-tooltip": "^5.11.1",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
     "slick-carousel": "^1.8.1",
