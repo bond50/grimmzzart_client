@@ -23,24 +23,14 @@ const ProductCard2 = ({product, hideQty, hideCat, hideDesc, hideRating}) => {
     return (
         <>
             <div className={classes.ProductCard}>
-                {/*<div className={classes.WishlistIcon}>*/}
-                {/*    <button*/}
-                {/*        data-tooltip-id={id}*/}
-                {/*        data-tooltip-content="Add to wishlist"*/}
-                {/*        data-tooltip-place="left"*/}
-                {/*        className="border-0 bg-transparent">*/}
-                {/*        <Icon icon='mdi:cards-heart' width="18" height="18" className={classes.Icon}/>*/}
-                {/*    </button>*/}
-                {/*</div>*/}
+
                 <Link to={`/product/${slug}`}>
                     <div className={classes.ProductImage}>
                         <div className={classes.Image}>
                             <img
                                 src={images && images.length ? images[0].url : defaultImage} className="img-fluid"
                                 alt="product image"/>
-                            <img
-                                src={images?.length > 0 ? images[1]?.url : defaultImage} className="img-fluid"
-                                alt="product image"/>
+
                         </div>
                     </div>
                     <div className={classes.ProductDetails}>
@@ -52,11 +42,11 @@ const ProductCard2 = ({product, hideQty, hideCat, hideDesc, hideRating}) => {
 
                         {!hideCat && <h6 className={classes.Brand}>{category ? category.name : 'Uncategorized'}</h6>}
                         <h5 className={classes.ProductTitle}>
-                            {displayTitle && `${displayTitle.substring(0, 40)}...`}
+                            {displayTitle && `${displayTitle.substring(0, 75)}...`}
                         </h5>
                         {!hideRating && <span>{showAverageRating(product)}</span>}
                         {!hideDesc && <p className={classes.Description}>
-                            {description && `${description.substring(0, 40)}...`}
+                            {description && `${description.substring(0, 75)}...`}
                         </p>}
                         <p className={classes.Price}>KSH {`${price}.00`}</p>
                     </div>

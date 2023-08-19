@@ -41,20 +41,16 @@
 }
 
 .Image {
-
     height: 100%;
-
 }
 
 .Image img {
-    object-fit: cover;
+    object-fit: contain;
     height: 100%;
     width: 100%;
 }
 
-.Image > img:last-child {
-    display: none;
-}
+
 
 .ProductCard:hover .Image > img:nth-child(1) {
     display: none;
