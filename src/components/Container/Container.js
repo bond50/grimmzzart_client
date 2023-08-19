@@ -4,7 +4,7 @@ const Container = ({children, containerClass, class1}) => {
     return (
         <section className={class1}>
             <div
-                className={`container-xxl ${containerClass}`}>
+                className={`container`}>
                 {children}
             </div>
         </section>

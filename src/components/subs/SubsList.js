@@ -3,8 +3,8 @@ import Slider from 'react-slick';
 import {getSubs} from '../../services/sub.service';
 import Container from '../Container/Container';
 import './SubsList.css';
-import {Last} from "react-bootstrap/PageItem";
 import {Link} from "react-router-dom";
+import Loader from "../../common/Loader/Loader";
 
 const SubsList = () => {
     const [subs, setSubs] = useState([]);
@@ -26,10 +26,36 @@ const SubsList = () => {
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 8,
+        slidesToShow: 6,
         slidesToScroll: 1,
-        arrows: true,
+        initialSlide: 0,
         autoplay: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+
+                    initialSlide: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
 
     const getRandomImage = (images) => {
@@ -44,7 +70,7 @@ const SubsList = () => {
 
     return (
         loading ? (
-            <Last/>
+            <Loader/>
         ) : (
             <Container class1="home-wrapper-2 py-5">
                 <Slider {...settings}>
@@ -52,11 +78,9 @@ const SubsList = () => {
                         return (
                             <div key={index} className="categories">
                                 <Link to={`/subs/${sub.slug}`}>
-
                                     <img src={getRandomImage(sub.images)} alt={sub.name}/>
-                                    <h6>{sub.name}</h6>
-
                                 </Link>
+                                <h6>{sub.name}</h6>
                             </div>
 
                         );
