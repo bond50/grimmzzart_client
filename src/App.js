@@ -154,11 +154,13 @@ const App = () => {
                             <Orders/>
                         </UserRoute>
                     }/>
-                    <Route path="user/order/:id" element={
+
+                    <Route path="user/order/:_id" element={
                         <UserRoute>
                             <Order/>
                         </UserRoute>
                     }/>
+
                 </Route>
 
 
