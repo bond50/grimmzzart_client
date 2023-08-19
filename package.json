@@ -18,12 +18,10 @@
     "dompurify": "^2.4.6",
     "formik": "^2.2.9",
     "google-map-react": "^2.2.0",
-
     "lodash": "^4.17.21",
     "mdb-react-ui-kit": "5.1.0",
     "react": "^18.1.0",
     "react-bootstrap": "^2.7.0",
-
     "react-date-picker": "^9.2.0",
     "react-datepicker": "^4.8.0",
     "react-day-picker": "^8.6.0",
@@ -59,7 +57,7 @@
     "start": "craco  start",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "build": "react-scripts build",
-
+    "inc": "NODE_OPTIONS='--max-old-space-size=4096' react-scripts build",
     "test": "craco test",
     "eject": "craco eject"
   },
