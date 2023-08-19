@@ -80,10 +80,16 @@ const SubsList = () => {
                                 <Link to={`/subs/${sub.slug}`}>
                                     <img src={getRandomImage(sub.images)} alt={sub.name}/>
                                 </Link>
-                                <h6>{sub.name}</h6>
+                                <h6>
+                                    <Link to={`/subs/${sub.slug}`}>
+                                        {sub.name}
+                                    </Link>
+                                </h6>
+
                             </div>
 
-                        );
+                        )
+                            ;
                     })}
                 </Slider>
             </Container>

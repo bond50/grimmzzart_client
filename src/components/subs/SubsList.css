@@ -1,14 +1,17 @@
 .home-wrapper-2 {
-  background-color: var(--color-border);
+    background-color: var(--color-grey);
 }
 
-.home-wrapper-2 h6 {
-  font-size: 14px;
-  font-weight: bold;
+.home-wrapper-2 h6 a {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color-blue);
 }
 
 .home-wrapper-2 .categories {
-  background-color: white;
-  padding: 15px;
-  min-height: 200px;
+    background-color: white;
+    padding: 15px;
+    min-height: 200px;
 }
+
+
