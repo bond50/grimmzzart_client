@@ -6,24 +6,18 @@ import Backdrop from '../components/nav/aside/Backdrop/Backdrop';
 import Footer from '../components/footer/Footer';
 import Header from '../components/nav/header/Header';
 import useToggle from '../hooks/useToggle';
-import {useCurrentPath} from '../hooks/useCurrentPath';
 import classes from './Layout.module.css';
-import {includedPaths} from "../common/includedPaths";
+
 
 
 const Layout = () => {
     const [open, toggleClosed] = useToggle();
-    const location = useLocation();
-    const params = useParams();
-    const path = useCurrentPath(location, params);
-
-
     const [scrolled, setScrolled] = useState(false);
     let attachedClass;
-    if (open || includedPaths.includes(path)) {
+    if (!open) {
         attachedClass = classes.NotOpened;
     } else {
-        attachedClass = classes.Main;
+        attachedClass = classes.NotOpened;
     }
 
     const handleScroll = () => {
@@ -49,6 +43,7 @@ const Layout = () => {
                 clicked={toggleClosed}
                 scrolled={scrolled}
                 handleScroll={handleScroll}/>
+
             <main className={attachedClass}>
                 <Outlet context={{open}}/>
             </main>

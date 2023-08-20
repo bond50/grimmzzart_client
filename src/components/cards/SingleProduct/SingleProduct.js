@@ -36,7 +36,7 @@ const SingleProduct = ({
 
     return (
         <>
-            <section className={`section-bg-2`}>
+            <section className={`section-bg-2 sectionClass15`}>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-lg-10'>

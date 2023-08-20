@@ -15,7 +15,7 @@ import Related from "../components/Related/Related";
 import {addToRecentlyViewed} from "../redux/slices/recentlyViewed";
 import Recent from "../components/Recent/Recent";
 import {productStar} from "../services/product.service";
-
+import Wrapper2 from "../hoc/Wrapper2";
 
 
 const Product = () => {
@@ -124,10 +124,8 @@ const Product = () => {
     }
 
 
-
     return (
-        <>
-            <MetaData title={`${product.title} ${product.specifications.model}`}/>
+        <Wrapper2 title={product.displayTitle}>
             {product && <SingleProduct
                 product={product}
                 handleClickAddToCart={handleClickAddToCart}
@@ -151,7 +149,7 @@ const Product = () => {
             {product.rating && product.rating.length > 0 && <ListReview product={product}/>}
 
             <Recent productId={product._id}/>
-        </>
+        </Wrapper2>
 
     );
 };
