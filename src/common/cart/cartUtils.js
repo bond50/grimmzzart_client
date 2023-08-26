@@ -21,7 +21,6 @@ export const updateCartAndDispatch = (cart, dispatch) => {
 
 export const handleCart = (product, dispatch, navigate) => {
     let cart = getCartFromLocalStorage(); // Retrieve cart from localStorage
-
     // Check if product is already in the cart
     const productIndex = getProductIndex(cart, product._id);
 
@@ -35,13 +34,12 @@ export const handleCart = (product, dispatch, navigate) => {
         );
     }
 
-
     updateCartAndDispatch(cart, dispatch);
     toast(<Msg handleClick={() => navigate('/cart')}/>, {
         position: toast.POSITION.BOTTOM_CENTER,
         className: classes.ToastMessage,
         hideProgressBar: true,
-        closeButton: false,
+        closeButton: true,
     });
 };
 

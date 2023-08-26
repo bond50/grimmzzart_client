@@ -2,12 +2,14 @@ import axios from "axios";
 import {API_URL} from "../common/config/config";
 
 
-
- export const getCategories = async () => await axios.get(`${API_URL}/categories`);
+export const getCategories = async () => await axios.get(`${API_URL}/categories`);
 
 export const fetchCategories = async () => {
     try {
         const response = await axios.get(`${API_URL}/categories`);
+        if (response.data) {
+            localStorage.setItem('categories', JSON.stringify(response.data));
+        }
         return response.data;
     } catch (error) {
         // Handle error

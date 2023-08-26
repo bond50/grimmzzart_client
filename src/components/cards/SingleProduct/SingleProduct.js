@@ -33,7 +33,6 @@ const SingleProduct = ({
     const cleanDescription = DOMPurify.sanitize(description);
 
 
-
     return (
         <>
             <section className={`section-bg-2 sectionClass15`}>
@@ -61,9 +60,8 @@ const SingleProduct = ({
                                             <h3 className={classes.ProductTitle}>{displayTitle}</h3>
                                             <p className={classes.BrandInfo}>Brand:<Link
                                                 to={`/brands/${brand.slug}`}>{brand.name}</Link> | <Link
-                                                to={`/brands/${brand.slug}`}>
+                                                to={`/categories/${product.category.slug}`}>
                                                 Similar products
-                                                from {brand.name}
                                             </Link>
                                             </p>
 

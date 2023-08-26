@@ -2,7 +2,6 @@ import axios from "axios";
 import {API_URL} from "../common/config/config";
 
 
-
 export const userCart = async (cart, token) => {
     return await axios.post(`${API_URL}/user/cart`, {cart}, {
         headers: {
@@ -37,6 +36,18 @@ export const saveUserAddress = (data, token) => {
         })
 
         .then((response) => {
+
+            if (typeof window !== "undefined") {
+                const existingData = JSON.parse(localStorage.getItem("user") || "{}");
+
+                console.log('RESPONSE',response.data)
+
+                existingData.address = response.data.address;
+
+                console.log(existingData)
+                localStorage.setItem("user", JSON.stringify(existingData));
+            }
+
             return response.data;
         });
 };
@@ -81,7 +92,6 @@ export const getUserOrders = async (token) => {
         }
     });
 };
-
 
 
 export const getWishList = async (token) => {

@@ -23,7 +23,7 @@ import searchReducer from "./slices/search";
 import couponReducer from "./slices/coupon";
 import paymentReducer from "./slices/paymentMethods";
 import totalAfterDiscountReducer from "./slices/totalAfterDiscount";
-import catsReducer from "./slices/categories";
+import brandsCategoriesSubsReducer from "./slices/brandCategorySubs";
 import recentlyViewedReducer from './slices/recentlyViewed'
 
 
@@ -42,7 +42,7 @@ const rootReducer = combineReducers({
     search: searchReducer,
     paymentMethods: paymentReducer,
     coupon: couponReducer,
-    categories: catsReducer,
+    brandsCategoriesSubs: brandsCategoriesSubsReducer,
     recentlyViewed: recentlyViewedReducer,
     totalAfterDiscount: totalAfterDiscountReducer,
 });

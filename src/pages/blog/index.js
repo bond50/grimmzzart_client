@@ -1,10 +1,11 @@
 import React from 'react';
+import Wrapper from "../../hoc/Wrapper";
 
 const Blog = () => {
     return (
-        <div>
-            Blog
-        </div>
+        <Wrapper title='Blog'>
+            <h1>Blog</h1>
+        </Wrapper>
     );
 };
 

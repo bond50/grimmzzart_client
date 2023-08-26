@@ -6,9 +6,27 @@
 }
 
 
-.card h2  {
+.empty h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.empty a {
+    color: var(--color-primary);
+
+}
+.empty a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+
+}
+
+.card h2 {
     color: var(--color-blue);
 }
+
 .card h3 {
     color: var(--color-blue);
     font-size: 22px;
@@ -17,8 +35,7 @@
 }
 
 
-
-.text-muted{
+.text-muted {
     color: var(--color-steel-blue);
     font-size: 14px;
 }

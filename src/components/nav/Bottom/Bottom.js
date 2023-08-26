@@ -1,12 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink, Link} from "react-router-dom";
-import menu from "../../../images/menu.svg";
-import classes from './Bottom.module.css'
+import classes from './Bottom.module.css';
 import useToggle from "../../../hooks/useToggle";
-import { Icon } from '@iconify/react';
+import {Icon} from '@iconify/react';
+import {useSelector} from "react-redux";
+
 
 const Bottom = () => {
     const [open, toggleClosed] = useToggle();
+
+   const {data, loading, error} = useSelector((state) => state.brandsCategoriesSubs);
+    const {categories} = data;
+
+
 
     return (
         <header className={classes.Header}>
@@ -14,36 +20,35 @@ const Bottom = () => {
                 <div className="d-flex align-items-center gap-30">
                     <div className="dropdown">
                         <div
-                            className={` dropdown-toggle border-0 gap-15 d-flex align-items-center  ${classes.Button}`}
+                            className={`dropdown-toggle border-0 gap-15 d-flex align-items-center ${classes.Button}`}
                             onClick={toggleClosed}
                         >
-                            <img src={menu} alt="" />
-                            {/*<Icon icon="carbon:categories" />*/}
-                            <span className="me-5 d-inline-block ">Categories</span>
+                            <Icon icon="carbon:categories" fontSize={20}/>
+                            <span className="me-5 d-inline-block">Categories</span>
                         </div>
+
                         <ul className={`dropdown-menu ${classes.DropdownMenu} ${open ? `${classes.DropdownMenuToggle}` : ''}`}
                             aria-labelledby="dropdownMenuButton1">
-                            <li>
-                                <Link className={`${classes.Item} dropdown-item`} to="">
-                                    Action
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className={`${classes.Item} dropdown-item `} to="">
-                                    Another action
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className={`${classes.Item} dropdown-item `} to="">
-                                    Something else here
-                                </Link>
-                            </li>
+
+
+                            {loading ? (
+                                <li>Loading...</li>
+                            ) : (
+                                categories.map((category, index) => (
+                                    <li key={index}>
+                                        <Link className={`${classes.Item} dropdown-item`}
+                                              to={`/categories/${category.slug}`}>
+                                            {category.name}
+                                        </Link>
+                                    </li>
+                                ))
+                            )}
                         </ul>
                     </div>
                     <div className={classes.Links}>
-                        <div className="d-flex align-items-center gap-15 ">
+                        <div className="d-flex align-items-center gap-15">
                             <NavLink to="/" className={classes.Link}>Home</NavLink>
-                            <NavLink to="/market" className={classes.Link}>Store</NavLink>
+                            <NavLink to="/shop" className={classes.Link}>Shop</NavLink>
                             <NavLink to="/blog" className={classes.Link}>Blog</NavLink>
                             <NavLink to="/help" className={classes.Link}>Help</NavLink>
                             <NavLink to="/contact" className={classes.Link}>Contact</NavLink>
@@ -51,7 +56,6 @@ const Bottom = () => {
                     </div>
                 </div>
             </div>
-
         </header>
     );
 };

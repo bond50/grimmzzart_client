@@ -22,7 +22,7 @@ import {useCurrentPath} from "../../../hooks/useCurrentPath";
 const Header = ({clicked, scrolled, handleScroll}) => {
     const {isLoggedIn} = useSelector((state) => state.auth);
     const [searchToggle, setSearchToggle] = useState(false);
-     const location = useLocation();
+    const location = useLocation();
     const params = useParams();
     const path = useCurrentPath(location, params);
     let navbarClasses = [classes.Header];
@@ -36,7 +36,6 @@ const Header = ({clicked, scrolled, handleScroll}) => {
         navigate('/');
         window.location.reload()
     }, [dispatch, navigate]);
-
 
 
     useEffect(() => {
@@ -56,7 +55,7 @@ const Header = ({clicked, scrolled, handleScroll}) => {
         },
 
         {
-            to: '/market',
+            to: '/shop',
             iconName: 'mdi:store',
             label: 'Our store'
         },

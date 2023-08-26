@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 const MetaData = ({ title }) => {
     return (
         <Helmet>
-            <title>{`${title} - Farm`}</title>
+            <title>{`${title} - ${process.env.REACT_APP_APPNAME}`}</title>
         </Helmet>
     )
 }

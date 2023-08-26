@@ -1,32 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import {getCategories} from '../../../services/categories';
 import classes from './Categories.module.css'
 import Card from "../../Container/Card";
 import Container from "../../Container/Container";
+import {useSelector} from "react-redux";
 
 const CategoryList = () => {
-    const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(false);
+     const { categories, loading, error } = useSelector((state) => state.categories);
 
-    useEffect(() => {
-        setLoading(true);
-        getCategories()
-            .then((response) => {
-                setCategories(response.data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setLoading(false);
-            });
-    }, []);
-
+ if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
     const showCats = () => {
         return categories && categories.map((category) => {
             return (
                 <div className={`col-lg-3 col-md-6 ${classes.ContentItem}`} key={category._id}>
-
                     <Link
                         to={`/category/${category.slug}`}
                         className="card-link">

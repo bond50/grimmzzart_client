@@ -11,6 +11,7 @@ import {getSubs} from "../services/sub.service";
 import {MDBCheckbox} from "mdb-react-ui-kit";
 import Star from "../components/star/Star";
 import _ from 'lodash';
+import ProductCard2 from "../components/cards/Product/ProductCard2";
 
 const Market = ({open}) => {
     const [products, setProducts] = useState([])
@@ -47,7 +48,7 @@ const Market = ({open}) => {
     }, [])
 
 
-     useEffect(() => {
+    useEffect(() => {
         if ((categoryIds.length <= 0)) {
             loadAllProducts()
 
@@ -115,7 +116,7 @@ const Market = ({open}) => {
         return () => {
             fetchProductsDebounced.cancel();
         };
-    }, [text]);
+    }, [fetchProductsDebounced, text]);
 
     const resetFilters = (keep, keepValue) => {
         let resetState = {
@@ -304,16 +305,15 @@ const Market = ({open}) => {
 
                     </h5>
                 </div>
-                <div className="row g-3">
-                    {
-                        products.map(product => <div className='col-lg-4 col-md-6 mb-3 px-3' key={product._id}>
-                                <ProductCard
-                                    product={product}
-                                    market={true}
-                                />
-                            </div>
-                        )
-                    }
+                <div className="card-body">
+                    <div className="row">
+                        {
+                            products.map(product => <div className='col-lg-4 col-md-6' key={product._id}>
+                                    <ProductCard2 product={product} hideCat hideDesc />
+                                </div>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         </General>

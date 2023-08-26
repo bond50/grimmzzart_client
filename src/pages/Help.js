@@ -1,10 +1,12 @@
 import React from 'react';
+import Wrapper from "../hoc/Wrapper";
+
 
 const Help = () => {
     return (
-        <div>
-            Help
-        </div>
+        <Wrapper title='Help'>
+            <h1>Help</h1>
+        </Wrapper>
     );
 };
 

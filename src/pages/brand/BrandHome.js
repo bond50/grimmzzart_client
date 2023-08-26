@@ -1,22 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import ProductCard2 from '../../components/cards/Product/ProductCard2';
-import {getSub} from '../../services/sub.service';
+import {getBrand} from '../../services/brand.service';
 import Wrapper from '../../hoc/Wrapper';
 import SmallLoader from "../../common/Loader/SmallLoader";
 
-const SubHome = () => {
+const BrandHome = () => {
     const {slug} = useParams();
-    const [sub, setSub] = useState({});
+    const [brand, setBrand] = useState({});
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true); // Initially set to true
 
     useEffect(() => {
         setLoading(true); // Start loading
-
-        getSub(slug)
+        getBrand(slug)
             .then((r) => {
-                setSub(r.data.sub);
+                setBrand(r.data.brand);
                 setProducts(r.data.products);
             })
             .catch((e) => {
@@ -28,7 +27,7 @@ const SubHome = () => {
     }, [slug]);
 
     return (
-        <Wrapper title={sub.name}>
+        <Wrapper title={brand.name}>
             {loading ? (
                 <SmallLoader/>
             ) : (
@@ -51,4 +50,4 @@ const SubHome = () => {
     );
 };
 
-export default SubHome;
+export default BrandHome;

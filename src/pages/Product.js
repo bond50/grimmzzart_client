@@ -7,7 +7,6 @@ import Loader from "../common/Loader/Loader";
 import {fetcher, swrOptions} from "../common/fetcher";
 import useSWR from "swr";
 import {API_URL} from "../common/config/config";
-import MetaData from "../common/helmet/MetaData";
 import {handleCart, handleQtyDecrease, handleQtyIncrease} from "../common/cart/cartUtils";
 import {addToWishlist} from "../services/user.service";
 import ListReview from "../components/Reviews/ListReview";

@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../../redux/slices/cart";
 import {toast} from "react-toastify";
 import {Icon} from '@iconify/react';
-import classes from  './ProductcardInCheckout.module.css'
+import classes from './ProductcardInCheckout.module.css'
 import {emptyUserCart} from "../../../services/user.service";
 import {useNavigate} from "react-router-dom";
 import {setTotalAfterDiscount} from "../../../redux/slices/totalAfterDiscount";
@@ -49,6 +49,7 @@ const ProductCardInCheckout = ({product}) => {
 
     }
 
+    console.log(auth)
 
     function handleRemove() {
         let cart = []
@@ -61,15 +62,18 @@ const ProductCardInCheckout = ({product}) => {
                     cart.splice(index, 1)
                 }
             })
+
             dispatch(setTotalAfterDiscount(0))
             dispatch(couponApplied(false))
             localStorage.setItem('cart', JSON.stringify(cart))
             dispatch(addToCart(cart))
-            emptyUserCart(auth.user.token).then(r => {
-                toast.success('Cart emptied',
-                    {position: toast.POSITION.BOTTOM_CENTER,})
+            if (auth.user && auth.user.token) {
+                emptyUserCart(auth.user.token).then(r => {
+                    toast.success('Cart emptied',
+                        {position: toast.POSITION.BOTTOM_CENTER,})
 
-            })
+                })
+            }
         }
 
     }
@@ -77,7 +81,7 @@ const ProductCardInCheckout = ({product}) => {
     return (
         <tr className={classes.items}>
             <td className='text-center'>
-                <div style={{width: '80px', height: 'auto',marginTop:'5px'}}>
+                <div style={{width: '80px', height: 'auto', marginTop: '5px'}}>
                     {product && product.images && product.images.length ? <ModalImage
                         small={product.images[0].url}
                         large={product.images[0].url}

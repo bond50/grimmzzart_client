@@ -20,30 +20,35 @@ const ProductCard2 = ({product, hideQty, hideCat, hideDesc, hideRating}) => {
         handleCart(product, dispatch, navigate);
     };
 
+    const truncateText = (text, length) => {
+        return text.length > length ? `${text.substring(0, length)}...` : text;
+    };
+
     return (
         <>
             <div className={classes.ProductCard}>
-
-                <Link to={`/product/${slug}`}>
+                <Link to={`/products/${slug}`}>
                     <div className={classes.ProductImage}>
                         <div className={classes.Image}>
                             <img
                                 src={images && images.length ? images[0].url : defaultImage} className="img-fluid"
-                                alt="product image"/>
+                                alt={product.title}/>
 
                         </div>
                     </div>
                     <div className={classes.ProductDetails}>
-                        {
-                            !hideQty && <p className={quantity < 1 ? `${classes.Less}` : ''}>
+                        {quantity && !hideQty && (
+                            <p className={quantity < 1 ? `${classes.Less}` : ''}>
                                 {quantity === 1 ? '1 product remaining' : `${quantity} products remaining`}
                             </p>
-                        }
-
-                        {!hideCat && <h6 className={classes.Brand}>{category ? category.name : 'Uncategorized'}</h6>}
+                        )}
+                        {category && !hideCat && (
+                            <h6 className={classes.Brand}>{truncateText(category.name, 20)}</h6>
+                        )}
                         <h5 className={classes.ProductTitle}>
-                            {displayTitle && `${displayTitle.substring(0, 75)}...`}
+                            {displayTitle && truncateText(displayTitle, 50)}
                         </h5>
+
                         {!hideRating && <span>{showAverageRating(product)}</span>}
                         {!hideDesc && <p className={classes.Description}>
                             {description && `${description.substring(0, 75)}...`}
@@ -53,7 +58,7 @@ const ProductCard2 = ({product, hideQty, hideCat, hideDesc, hideRating}) => {
                 </Link>
                 {/*<div className={classes.ActionBar}>*/}
                 {/*    <div className="d-flex flex-column gap-10">*/}
-                {/*        <Link to={`/product/${slug}`}>*/}
+                {/*        <Link to={`/products/${slug}`}>*/}
                 {/*            <button*/}
                 {/*                data-tooltip-id={id}*/}
                 {/*                data-tooltip-content="View product"*/}

@@ -8,10 +8,13 @@ import Loader from "./common/Loader/Loader";
 import ScrollToTop from "./components/ScrollToTop";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "./redux/slices/auth";
+import BrandHome from "./pages/brand/BrandHome";
+import {getBrandsCategoriesSubs} from "./redux/slices/brandCategorySubs";
 
 
 const Blog = lazy(() => import( "./pages/blog"));
 const Help = lazy(() => import( "./pages/Help"));
+
 const Contact = lazy(() => import("./pages/Contact"));
 const AuthLayout = lazy(() => import("./hoc/AuthLayout"));
 
@@ -61,6 +64,11 @@ const App = () => {
     }, [dispatch]);
 
 
+    useEffect(() => {
+        dispatch(getBrandsCategoriesSubs());
+    }, [dispatch]);
+
+
     return (
         <Suspense fallback={
             <Loader/>
@@ -82,18 +90,23 @@ const App = () => {
             <Routes>
                 <Route element={<Layout/>}>
                     <Route index element={<Home/>}/>
-                    <Route path="/market" element={
+                    <Route path="/shop" element={
                         <Market/>
                     }/>
-                    <Route path="/product/:slug" element={
+                    <Route path="/products/:slug" element={
                         <Product/>
                     }/>
-                    <Route path="category/:slug" element={
+                    <Route path="categories/:slug" element={
                         <CategoryHome/>
                     }/>
                     <Route path="subs/:slug" element={
                         <SubHome/>
                     }/>
+
+                    <Route path="brands/:slug" element={
+                        <BrandHome/>
+                    }/>
+
                     <Route path="/cart" element={
                         <Cart/>
                     }/>
@@ -107,7 +120,7 @@ const App = () => {
                     <Route path="/help" element={
                         <Help/>
                     }/>
-                    <Route path="/help" element={
+                    <Route path="/contact" element={
                         <Contact/>
                     }/>
 

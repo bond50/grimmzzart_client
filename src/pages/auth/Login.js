@@ -141,8 +141,14 @@ const Login = () => {
 
         );
     };
+
     if (isLoggedIn) {
-        return <Navigate replace to="/user/history"/>
+        if (location.state) {
+            return <Navigate replace to={location.state.from}/>
+        } else {
+            return <Navigate replace to="/user/orders"/>
+        }
+
     } else {
 
         return (

@@ -1,13 +1,10 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useSelector, useDispatch} from "react-redux";
 import {applyCoupon, emptyUserCart, getUserCart} from "../services/user.service";
-
 import {toast} from "react-toastify";
 import {couponApplied} from "../redux/slices/coupon";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import DeliveryAddress from "../components/wizard/checkout/DeliveryAddress";
-import {extractAddress, loadAsyncScript} from "../components/wizard/checkout/loadAsync";
-import {updateUserAddress} from "../redux/slices/auth";
 import {addToCart} from "../redux/slices/cart";
 import {setTotalAfterDiscount} from "../redux/slices/totalAfterDiscount";
 import {selectPaymentMethod} from "../redux/slices/paymentMethods";
@@ -15,23 +12,15 @@ import {clearMessage} from "../redux/slices/message";
 import Wrapper from "../hoc/Wrapper";
 
 
-const mapApiJs = 'https://maps.googleapis.com/maps/api/js';
-const geocodeJson = 'https://maps.googleapis.com/maps/api/geocode/json';
-
 const Checkout = () => {
     const [products, setProducts] = useState([])
     const [total, setTotal] = useState(0)
-    const [coupon, setCoupon] = useState('PRACTICAL')
+    const [coupon, setCoupon] = useState('')
     // const [totalAfterDiscount, setTotalAfterDiscount] = useState(0)
     const [discountError, setDiscountError] = useState('')
-    const searchInput = useRef(null);
     const [loading, setLoading] = useState(false)
-    const [show, setShow] = useState(false)
     const dispatch = useDispatch()
-
-
     const {auth, cart, coupon: couponUsed, message, totalAfterDiscount} = useSelector((state) => ({...state}));
-    const [address, setAddress] = useState(auth.user.address && auth.user.address.length > 0 ? auth.user.address[0] : {});
     const token = auth.isLoggedIn && auth.user.token && auth.user.token
     const navigate = useNavigate()
     const location = useLocation();
@@ -65,101 +54,6 @@ const Checkout = () => {
         })
     }, [cart.length, navigate, token])
 
-    //Delivery address logic
-
-    const initMapScript = useCallback(() => {
-        // if script already loaded
-        if (window.google) {
-            return Promise.resolve();
-        }
-        const src = `${mapApiJs}?key=${process.env.REACT_APP_GOOGLE_MAP_API_KEY}&libraries=places&callback=Function.prototype`;
-        return loadAsyncScript(src);
-    }, [])
-
-
-    // do something on address change
-    const onChangeAddress = useCallback((autocomplete) => {
-        setLoading(true)
-        const place = autocomplete.getPlace();
-        const _address = extractAddress(place);
-        setAddress(_address);
-        const info = {address: _address, token, place}
-        info.address.name = searchInput.current && searchInput.current.value && searchInput.current.value
-
-        dispatch(updateUserAddress(info))
-            .unwrap()
-            .then((res) => {
-                setLoading(false)
-                setShow(false);
-            })
-            .catch(() => {
-                setLoading(false)
-                setShow(false);
-            });
-
-    }, [dispatch, token])
-
-
-    // init autocomplete
-    const initAutocomplete = useCallback(() => {
-        if (!searchInput.current) return;
-        const autocomplete = new window.google.maps.places.Autocomplete(
-            searchInput.current,
-            {
-                componentRestrictions: {'country': ['ke']},
-                types: ["establishment"]
-            });
-        autocomplete.setFields(["address_component", 'formatted_address', 'place_id', 'name', "geometry"]);
-        autocomplete.addListener("place_changed", () => onChangeAddress(autocomplete));
-
-
-    }, [onChangeAddress])
-
-    // load map script after mounted
-    useEffect(() => {
-        initMapScript().then(() => initAutocomplete())
-    }, [initAutocomplete, initMapScript, show]);
-
-
-    const reverseGeocode = ({latitude: lat, longitude: lng}) => {
-        setLoading(true)
-
-        const url = `${geocodeJson}?key=${process.env.REACT_APP_GOOGLE_MAP_API_KEY}&latlng=${lat},${lng}`;
-        searchInput.current.value = "Getting your location...";
-        fetch(url)
-            .then(response => response.json())
-            .then(location => {
-                const place = location.results[0];
-                const _address = extractAddress(place);
-                setAddress(_address);
-                searchInput.current.value = _address.plain();
-                const info = {address: _address, token, place}
-                info.address.name = searchInput.current.value
-                dispatch(updateUserAddress(info))
-                    .unwrap()
-                    .then((res) => {
-                        setLoading(false)
-                        setShow(false);
-
-                    })
-                    .catch(() => {
-                        setLoading(false)
-                        setShow(false);
-                    });
-
-            })
-    }
-
-
-    const findMyLocation = () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(position => {
-                reverseGeocode(position.coords)
-            })
-        }
-    }
-
-    //End od delivery Address logic
 
     //coupon
 
@@ -229,23 +123,9 @@ const Checkout = () => {
                                         <h3 className="card-title">
                                             Shipping information
                                         </h3>
-
                                     </div>
                                     <div className="card-body">
-
-                                        <DeliveryAddress
-                                            address={address}
-                                            loading={loading}
-                                            show={show}
-                                            setShow={setShow}
-                                            findMyLocation={findMyLocation}
-                                            searchInput={searchInput}
-                                            coupon={coupon}
-                                            couponUsed={couponUsed}
-                                            setCoupon={setCoupon}
-                                            applyDiscountCoupon={applyDiscountCoupon}
-                                            setDiscountError={setDiscountError}/>
-
+                                        <DeliveryAddress/>
                                     </div>
                                     <div className='card-footer'>
                                         {message.message && <div className='text-danger'>
@@ -306,21 +186,25 @@ const Checkout = () => {
                                     </div>
 
                                     <div className="card-footer">
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <button
-                                                className="btn btn-primary"
-                                                onClick={() => navigate('/payment', {
-                                                    state: {
-                                                        from: 'checkout'
-                                                    }
-                                                })}
-                                                disabled={!auth.addressSaved || !products.length || !selectedPaymentMethod}>
-                                                Next step
-                                            </button>
-                                            <button className="btn btn-danger" onClick={emptyCart}
-                                                    disabled={!products.length}>
-                                                Empty cart
-                                            </button>
+                                        <div className="row">
+                                            <div className="col-lg-6 mb-3">
+                                                <button
+                                                    className="btn btn-primary btn-block"
+                                                    onClick={() => navigate('/payment', {
+                                                        state: {
+                                                            from: 'checkout'
+                                                        }
+                                                    })}
+                                                    disabled={!auth.addressSaved || !products.length || !selectedPaymentMethod}>
+                                                    Next step
+                                                </button>
+                                            </div>
+                                            <div className="col-lg-6 mb-3">
+                                                <button className="btn btn-danger btn-block" onClick={emptyCart}
+                                                        disabled={!products.length}>
+                                                    Empty cart
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -334,17 +218,19 @@ const Checkout = () => {
         );
     }
     if (!token) {
-        return <div className='container'>
-            <p>Login to proceed</p>
-            < button className='btn   mt-2 btn-primary '>
-                <Link to="/auth/login"
-                      state={{from: '/checkout'}}>
+        return <Wrapper title='Checkout'>
+            <div className='container'>
+                <p className='card-title'>Login to proceed</p>
+                < button className='btn   mt-2 btn-primary '>
+                    <Link to="/auth/login"
+                          state={{from: '/checkout'}}>
                 <span className='text-white'>
                 Click to Login
                 </span>
-                </Link>
-            </button>
-        </div>
+                    </Link>
+                </button>
+            </div>
+        </Wrapper>
     }
 
 

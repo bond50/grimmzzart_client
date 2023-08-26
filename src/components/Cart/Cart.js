@@ -35,7 +35,14 @@ const CartComponent = ({getTotal, saveOrderToDb}) => {
 
     return (
         <div className="row">
-            {cart.length === 0 ? <h2>Your Cart is Empty</h2> : (<Fragment>
+            {cart.length === 0 ? <div className={classes.empty}>
+                <h2>Your Cart is Empty</h2>
+                <span>
+                    <Link to={'/shop'}>
+                        Return to shopping
+                    </Link>
+                </span>
+            </div> : (<Fragment>
                 <div className="col-md-8">
                     <div className={`card ${classes.card}`}>
                         <div className="card-header">

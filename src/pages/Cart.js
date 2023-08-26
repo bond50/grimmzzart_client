@@ -41,7 +41,7 @@ const Cart = () => {
 
 
     return (
-        <Wrapper title='Your Cart'>
+        <Wrapper title='Cart'>
             <CartComponent
                 saveOrderToDb={saveOrderToDb}
                 getTotal={getTotal}/>

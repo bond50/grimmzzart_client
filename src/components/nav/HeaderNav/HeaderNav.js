@@ -21,7 +21,9 @@ const HeaderNav = ({
     });
 
 
-    const {cart, auth} = useSelector((state) => ({...state}));
+    const cart = useSelector((state) => state.cart);
+    const auth = useSelector((state) => state.auth);
+
     return (
         <nav className={`${classes.HeaderNav} ms-auto`}>
             <ul className={`${classes.NavigationItems} `}>

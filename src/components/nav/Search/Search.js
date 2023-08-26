@@ -9,7 +9,7 @@ import classes from './Search.module.css'
 const Search = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
-    const {search} = useSelector((state) => state);
+    const search = useSelector((state) => state.search);
     const {text} = search
     const location = useLocation();
 

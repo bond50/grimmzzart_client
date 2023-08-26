@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Slider from 'react-slick';
-import {getSubs} from '../../services/sub.service';
+import {getSubsWithProducts} from '../../services/sub.service';
 import Container from '../Container/Container';
 import './SubsList.css';
-import {Link} from "react-router-dom";
-import Loader from "../../common/Loader/Loader";
+import {Link} from 'react-router-dom';
+import Loader from '../../common/Loader/Loader';
 
 const SubsList = () => {
     const [subs, setSubs] = useState([]);
@@ -12,7 +12,7 @@ const SubsList = () => {
 
     useEffect(() => {
         setLoading(true);
-        getSubs()
+        getSubsWithProducts()
             .then((response) => {
                 setSubs(response.data);
                 setLoading(false);
@@ -26,36 +26,32 @@ const SubsList = () => {
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 6,
+        slidesToShow: Math.min(subs.length, 6), // Show up to 6 slides initially
         slidesToScroll: 1,
-        initialSlide: 0,
         autoplay: true,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 4,
-
-                }
+                    slidesToShow: Math.min(subs.length, 4), // Show up to 4 slides on smaller screens
+                    slidesToScroll: 1,
+                },
             },
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-
-                    initialSlide: 3
-                }
+                    slidesToShow: Math.min(subs.length, 3), // Show up to 3 slides on even smaller screens
+                    slidesToScroll: 1,
+                },
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
+                    slidesToShow: Math.min(subs.length, 1), // Show 1 slide on the smallest screens
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     const getRandomImage = (images) => {
@@ -65,35 +61,27 @@ const SubsList = () => {
         } else {
             return '/images/camera.jpg';
         }
-    }
+    };
 
-
-    return (
-        loading ? (
-            <Loader/>
-        ) : (
-            <Container class1="home-wrapper-2 py-5">
-                <Slider {...settings}>
-                    {subs.map((sub, index) => {
-                        return (
-                            <div key={index} className="categories">
-                                <Link to={`/subs/${sub.slug}`}>
-                                    <img src={getRandomImage(sub.images)} alt={sub.name}/>
-                                </Link>
-                                <h6>
-                                    <Link to={`/subs/${sub.slug}`}>
-                                        {sub.name}
-                                    </Link>
-                                </h6>
-
-                            </div>
-
-                        )
-                            ;
-                    })}
-                </Slider>
-            </Container>
-        )
+    return loading ? (
+        <Loader/>
+    ) : (
+        <Container class1="home-wrapper-2 py-5">
+            <Slider {...settings}>
+                {subs.map((sub, index) => {
+                    return (
+                        <div key={index} className="categories">
+                            <Link to={`/subs/${sub.slug}`}>
+                                <img src={getRandomImage(sub.images)} alt={sub.name}/>
+                            </Link>
+                            <h6>
+                                <Link to={`/subs/${sub.slug}`}>{sub.name}</Link>
+                            </h6>
+                        </div>
+                    );
+                })}
+            </Slider>
+        </Container>
     );
 };
 

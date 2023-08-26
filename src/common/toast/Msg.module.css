@@ -5,3 +5,8 @@
     margin-bottom: 10px;
     font-weight: 500;
 }
+
+.Msg button {
+    border: 2px solid var(--color-accent) !important;
+    color: var(--color-accent);
+}

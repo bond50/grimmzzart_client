@@ -1,29 +1,43 @@
-import {createSlice} from "@reduxjs/toolkit";
+// categoriesSlice.js
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {fetchCategories} from "../../services/categories";
 
 
-let initialState = [];
-if (typeof window !== 'undefined') {
-    if (localStorage.getItem("categories")) {
-        initialState = JSON.parse(localStorage.getItem("categories"))
-    } else {
-        initialState = []
+export const getCategories = createAsyncThunk(
+    'categories/getCategories',
+    async () => {
+        return await fetchCategories();
     }
-}
+);
 
 
-const catSlice = createSlice({
-    name: "categories",
+const initialState = {
+    categories: JSON.parse(localStorage.getItem('categories')) || [],
+    loading: false,
+    error: null,
+};
+
+const categoriesSlice = createSlice({
+    name: 'categories',
     initialState,
-    reducers: {
-        addCats: (state, action) => {
-            return action.payload;
-        },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(getCategories.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(getCategories.fulfilled, (state, action) => {
+                state.loading = false;
 
+                state.categories = action.payload;
+                localStorage.setItem('categories', JSON.stringify(action.payload));
+            })
+            .addCase(getCategories.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message;
+            });
     },
 });
+const {reducer} = categoriesSlice;
 
-
-const {reducer, actions} = catSlice;
-
-export const {addCats} = actions
 export default reducer;

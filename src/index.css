@@ -1,7 +1,7 @@
 :root {
-    scroll-behavior: smooth;
-    --color-primary: #1F7437;
+    --color-primary: #0d42ff;
     --color-tertiary: #548B40;
+    --color-secondary: #0e1d34;
     --color-black: #131921;
     --color-green: #2fb500;
     --color-black-light: #3b4149;
@@ -20,6 +20,10 @@
     --color-black2: #1c1c1b;
     --color-grey: #f3f5fa;
     --color-border: #DDE6E1;
+}
+
+:root {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -58,8 +62,9 @@ section, .sectionClass60, .sectionClass80 {
     /*background-color: var(--color-border);*/
     background-color: var(--color-grey);
 }
+
 .section-bg-3 {
-   background-color: var(--color-border) !important
+    background-color: var(--color-border) !important
 }
 
 .section-bg-2 {

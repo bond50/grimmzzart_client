@@ -2,7 +2,6 @@ import React from 'react';
 import {Icon} from '@iconify/react';
 import classes from './Dropdown.module.css';
 import useToggle from '../../../hooks/useToggle';
-import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 const Dropdown = ({menuItems, icon, className, title, showHeader, user}) => {

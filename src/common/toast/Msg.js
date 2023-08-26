@@ -1,6 +1,6 @@
 import classes from "./Msg.module.css"
 import React from "react";
-import {toast} from "react-toastify";
+
 
 
 export const Msg = ({handleClick}) => {
@@ -9,7 +9,7 @@ export const Msg = ({handleClick}) => {
             <span>Added to cart </span>
             <button
                 onClick={handleClick}
-                className='btn btn-outline-light'>Open cart
+                className='btn btn-outline-info'>Open cart
             </button>
         </div>
     );

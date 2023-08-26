@@ -8,12 +8,24 @@ const Wrapper = ({title, children}) => {
         <div className={styles.wrapper}>
             <MetaData title={title}/>
             <Breadcrumb/>
-            <section className='section-bg sectionClass60'>
-                <div className="container bg-white">
-                    {children}
+            <section className='section-bg'>
+                <div className="container">
+                    <div className={`card ${styles.card}`}>
+                        <div className="card-header">
+                            <h1 className='card-title'>{title}</h1>
+                        </div>
+                        <div className="card-body">
+                            {children}
+                        </div>
+                        <div className="card-footer">
+                            <p className={`d-flex justify-content-center align-items-center ${styles.footer}`}>{title} -
+                                All Rights Reserved
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
-                <p className={`d-flex justify-content-center align-items-center mt-5 mb-0 ${styles.footer}`}>{title} - 2023-2024, All
-                    Rights Reserved</p>
+
             </section>
 
         </div>

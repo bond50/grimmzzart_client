@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation} from 'react-router-dom';
-import styles from './Breadcrump.module.css'
+import {Link, useLocation} from 'react-router-dom';
+import  './Breadcrump.css'
 
 const Breadcrumb = () => {
     const location = useLocation();
@@ -26,16 +26,16 @@ const Breadcrumb = () => {
     }, [location]);
 
     return (
-        <nav aria-label="breadcrumb">
-            <ol className={`${styles.breadcrumb} breadcrumb`}>
-                <li className={`${styles['breadcrumb-item']} breadcrumb-item`}>
-                    <a href="/">Home</a>
-                </li>
-                <li className={`${styles['breadcrumb-item']} breadcrumb-item ${styles['active']}`} aria-current="page">
-                    {breadcrumbs}
-                </li>
-            </ol>
-        </nav>
+        <div className='breadcrumbs'>
+            <nav>
+                <div className="container">
+                    <ol>
+                        <li><Link to="/">Home</Link></li>
+                        <li>{breadcrumbs}</li>
+                    </ol>
+                </div>
+            </nav>
+        </div>
     );
 };
 

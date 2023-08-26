@@ -17,7 +17,7 @@ const handleError = (error, thunkAPI) => {
         error.message ||
         "Something went wrong. Please try again later.";
 
-    thunkAPI.dispatch(setMessage(message));
+    thunkAPI.dispatch(setMessage({content: message, type: 'danger'}))
     showToast(message, "error", 4000, "350px");
     return thunkAPI.rejectWithValue();
 };
@@ -27,8 +27,6 @@ export const preSignup = createAsyncThunk("auth/preSignup", async (data, thunkAP
 
     try {
         const response = await AuthService.preSignup(data);
-
-        console.log('RESPONSE', response)
         thunkAPI.dispatch(setMessage({content: response.data.message, type: 'success'}));
         return response.data;
     } catch (error) {
@@ -40,7 +38,7 @@ export const preSignup = createAsyncThunk("auth/preSignup", async (data, thunkAP
 export const signup = createAsyncThunk("auth/signup", async (data, thunkAPI) => {
     try {
         const response = await AuthService.signup(data);
-        thunkAPI.dispatch(setMessage(response.data.message));
+        thunkAPI.dispatch(setMessage({content: response.data.message, type: 'success'}))
         return response.data;
     } catch (error) {
         return handleError(error, thunkAPI);
@@ -66,7 +64,7 @@ export const login = createAsyncThunk("auth/login", async (userInfo, thunkAPI) =
 export const forgotPassword = createAsyncThunk("auth/forgotPassword", async (email, thunkAPI) => {
     try {
         const response = await AuthService.forgotPassword(email);
-        thunkAPI.dispatch(setMessage(response.data.message));
+        thunkAPI.dispatch(setMessage({content: response.data.message, type: 'success'}))
         return response.data;
     } catch (error) {
         return handleError(error, thunkAPI);
@@ -77,7 +75,7 @@ export const forgotPassword = createAsyncThunk("auth/forgotPassword", async (ema
 export const resetPassword = createAsyncThunk("auth/resetPassword", async (data, thunkAPI) => {
     try {
         const response = await AuthService.resetPassword(data);
-        thunkAPI.dispatch(setMessage(response.data.message));
+       thunkAPI.dispatch(setMessage({content: response.data.message, type: 'success'}))
         return response.data;
     } catch (error) {
         return handleError(error, thunkAPI);
@@ -97,14 +95,20 @@ export const verifyToken = createAsyncThunk("auth/verifyToken", async () => {
 
 export const updateUserAddress = createAsyncThunk("auth/updateUserAddress", async (info, thunkAPI) => {
     try {
+
         if (!info.address.zipCode) {
             const {postcode} = await getAddress(info.address.lat, info.address.lng);
             if (postcode) {
                 info.address.zipCode = postcode;
             }
         }
+
         const data = await saveUserAddress(info, info.token);
+
+        console.log('data', data)
+
         return {userInfo: data};
+
     } catch (error) {
         return handleError(error, thunkAPI);
     }
