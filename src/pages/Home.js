@@ -7,11 +7,12 @@ import Hero2 from "../components/home/Hero2";
 import Recent from "../components/Recent/Recent";
 
 
+
 const Home = () => {
     return (
         <>
-            {/*<Hero/>*/}
-            <Hero2/>
+
+            {/*<Hero2/>*/}
             <SubsList/>
             <Recent/>
             <NewArrivals/>
