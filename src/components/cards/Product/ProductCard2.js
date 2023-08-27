@@ -46,7 +46,7 @@ const ProductCard2 = ({product, hideQty, hideCat, hideDesc, hideRating}) => {
                             <h6 className={classes.Brand}>{truncateText(category.name, 20)}</h6>
                         )}
                         <h5 className={classes.ProductTitle}>
-                            {displayTitle && truncateText(displayTitle, 50)}
+                            {displayTitle && truncateText(displayTitle, 100)}
                         </h5>
 
                         {!hideRating && <span>{showAverageRating(product)}</span>}
