@@ -22,7 +22,7 @@ const Recent = ({productId}) => {
             <Card cardHeader={true} title={'Recently viewed'}>
                 <div className="row">
                     {filteredRecentlyViewed.map((product) => (
-                        <div className="col-lg-2 col-md-6 mb-3" key={product._id}>
+                        <div className="col-lg-3 col-md-6 mb-3" key={product._id}>
                             <ProductCard2 product={product} hideCat hideDesc hideRating/>
                         </div>
                     ))}
